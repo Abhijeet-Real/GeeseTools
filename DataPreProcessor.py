@@ -572,6 +572,20 @@ class DataPreprocessor:
         # Store encoding logs
         encoding_logs = []
 
+        def check_ordinal_categories():
+            """Check if the ordinal categories are provided for all ordinal columns."""
+            if len(self.ordinal_features) != len(self.ordinal_categories):
+                raise ValueError("Number of ordinal features and categories do not match.")
+        
+        check_ordinal_categories()  # Check if ordinal categories are provided
+
+        def check_nominal_features():
+            """Check if nominal features are present for one-hot encoding."""
+            if not self.nominal_features and self.use_one_hot_encoding:
+                raise ValueError("No nominal features found for one-hot encoding.")
+            
+        check_nominal_features()  # Check if nominal features are present
+
         # Initialize OrdinalEncoder for ordinal columns with specified order
         if self.ordinal_features:
             ordinal_encoder = OrdinalEncoder(categories=self.ordinal_categories) if self.ordinal_categories else OrdinalEncoder()
