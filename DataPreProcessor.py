@@ -60,7 +60,7 @@ class DataPreprocessor:
             dataframe (pd.DataFrame): The input dataset to be preprocessed.
             target_variable (Union[str, list]): The target column(s) for prediction or classification.
             sample_size (Optional[Union[int, float]], optional): The number of records to sample from the dataset.
-                If an integer, it specifies the exact number of records. If a float (0 < x ≤ 1), it represents the percentage 
+                If an integer, it specifies the exact number of records. If a float (0 < x ≤ 100), it represents the percentage 
                 of data to sample. Defaults to None.
             missing_threshold (float, optional): The percentage threshold for dropping features with missing values.
                 Features exceeding this threshold will be removed. Defaults to 25.
@@ -316,12 +316,13 @@ class DataPreprocessor:
         self.num_rows = len(self.working_df)  # Get the number of rows in the DataFrame
 
 
-        self.sample_size /= 100  # Convert percentage to fraction
-        if 0 < self.sample_size < 1:  # Use as fraction
+          
+        if 0 < self.sample_size < 100:  # Use as fraction
+            self.sample_size /= 100 # Convert percentage to fraction
             self.working_df.sample(frac=self.sample_size)
 
         
-        elif self.sample_size > 1 and isinstance(self.sample_size, int) and self.sample_size < self.num_rows:  # Use as n
+        elif self.sample_size > 100 and isinstance(self.sample_size, int) and self.sample_size < self.num_rows:  # Use as n
             self.working_df.sample(n=self.sample_size)
 
         
