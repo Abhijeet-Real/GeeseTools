@@ -47,3 +47,10 @@ Desktop.ini
 # Environment files
 .env
 *.env
+
+# Test files
+DataAnalysis.ipynb
+sample.xlsx
+
+# Template files
+template_mixin.py
