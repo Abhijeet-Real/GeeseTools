@@ -5,7 +5,7 @@ import pandas as pd  # For handling structured data (DataFrames)import pandas as
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.datapreprocessor.DPP import DataPreprocessor
+    from src.dpp.DPP import DataPreprocessor
 
 # Feature scaling and encoding techniques
 from sklearn.preprocessing import (

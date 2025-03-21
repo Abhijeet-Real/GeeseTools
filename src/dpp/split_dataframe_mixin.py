@@ -2,7 +2,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.datapreprocessor.DPP import DataPreprocessor
+    from src.dpp.DPP import DataPreprocessor
 
 # Splitting dataset into training and testing sets
 from sklearn.model_selection import train_test_split  # Splits dataset into training and testing sets

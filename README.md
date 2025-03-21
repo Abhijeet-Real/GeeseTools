@@ -1,9 +1,8 @@
-```markdown
-# 📦 DataPreProcessor
+# 📦 dpp
 
 **Modular and Extensible Data Preprocessing Library for Machine Learning**
 
-`datapreprocessor` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
+`dpp` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
 
 ---
 
@@ -23,28 +22,34 @@
 
 ## 📂 Installation
 
-After building your wheel file (`.whl`) from the source:
+You can install the package directly from **Test PyPI**:
 
 ```bash
-pip install dist/datapreprocessor-0.1.0-py3-none-any.whl
-
+pip install --index-url https://test.pypi.org/simple/ dpp==0.1.0
 ```
 
-Or install directly using editable mode (for development):
+Or, after building your wheel file (`.whl`) from the source:
+
+```bash
+pip install dist/dpp-0.1.0-py3-none-any.whl
+```
+
+Or install directly in **editable mode** (for development):
 
 ```bash
 pip install -e .
 ```
+
 
 ---
 
 ## 🧪 Usage
 
 ```python
-import datapreprocessor as dpp
+import dpp as dpp
 
 # Instantiate with a dataset
-obj = datapreprocessor(
+obj = dpp(
     dataframe=df,
     target_variable='target',
     ordinal_features=['education_level'],
@@ -66,7 +71,7 @@ print(obj.transformation_log_df)
 If no DataFrame is provided, the processor loads a built-in `heart.csv` dataset:
 
 ```python
-obj = datapreprocessor()  # Uses sample heart dataset
+obj = dpp()  # Uses sample heart dataset
 ```
 
 ---
@@ -76,7 +81,7 @@ obj = datapreprocessor()  # Uses sample heart dataset
 ```
 src/
 │
-├── datapreprocessor/
+├── dpp/
 │   ├── DPP.py                  # Main class
 │   ├── mixins/                 # Modular preprocessing logic
 │   ├── data/heart.csv          # Default dataset

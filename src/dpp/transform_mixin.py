@@ -6,7 +6,7 @@ import numpy as np  # For numerical operations and handling arrays
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.datapreprocessor.DPP import DataPreprocessor
+    from src.dpp.DPP import DataPreprocessor
 
 # Statistical transformations
 from scipy.stats import boxcox  # Applies Box-Cox transformation to normalize skewed data

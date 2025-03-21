@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "datapreprocessor"
-version = "0.1.0"
+name = "dpp"
+version = "0.1.1"
 description = "Modular and extensible data preprocessing library"
 authors = [
     { name = "Abhijeet", email = "abhijeet1472@gmail.com" }

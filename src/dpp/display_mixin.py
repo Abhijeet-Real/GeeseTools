@@ -8,7 +8,7 @@ from IPython.display import display  # Displays dataframes in Jupyter Notebook i
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.datapreprocessor.DPP import DataPreprocessor
+    from src.dpp.DPP import DataPreprocessor
 
 class DisplayMixin:
     # Display all features without of DataFrame
