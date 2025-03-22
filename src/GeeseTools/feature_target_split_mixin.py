@@ -2,11 +2,11 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 class FeatureTargetSplitMixin:
     # Splits the DataFrame into features and target variable
-    def _feature_target_split(self) -> "DataPreprocessor":
+    def _feature_target_split(self) -> "GeeseTools":
         """
         Splits the DataFrame into features and target variable.
 

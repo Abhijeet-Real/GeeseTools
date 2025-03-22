@@ -8,11 +8,11 @@ from IPython.display import display  # Displays dataframes in Jupyter Notebook i
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 class DisplayMixin:
     # Display all features without of DataFrame
-    def display_all_features(self) -> "DataPreprocessor":
+    def display_all_features(self) -> "GeeseTools":
         """
         Display all features without of DataFrame without truncation.
 

@@ -2,14 +2,14 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 # Splitting dataset into training and testing sets
 from sklearn.model_selection import train_test_split  # Splits dataset into training and testing sets
 
 class SplitDataFrameMixin:
         # Performs Train Test Splits
-    def _split_dataframe(self) -> "DataPreprocessor":
+    def _split_dataframe(self) -> "GeeseTools":
         """
         Train Test Splits.
 

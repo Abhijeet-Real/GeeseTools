@@ -8,21 +8,17 @@ from sklearn.impute import SimpleImputer  # For imputing missing values with sta
 # Type hinting for better code readability and function definitions
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 class ImputeFeaturesMixin:
     # Impute missing values
-    def _impute_features(self) -> "DataPreprocessor":
+    def _impute_features(self) -> "GeeseTools":
         """
         Impute missing values in numeric columns of the DataFrame.
 
         Args:
             None
 
-        Returns:
-            tuple[pd.DataFrame, pd.DataFrame]: 
-                - The updated DataFrame after imputation.
-                - A DataFrame with imputation details for each column.
         """
         imputation_details = []
 

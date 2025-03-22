@@ -5,11 +5,11 @@ import pandas as pd  # For handling structured data (DataFrames)import pandas as
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 class DropFeaturesMixin:
     # Remove features from the DataFrame
-    def _drop_features(self) -> "DataPreprocessor":
+    def _drop_features(self) -> "GeeseTools":
         """
         Remove features from the DataFrame with a missing percentage higher than the given threshold.
 

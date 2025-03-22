@@ -6,7 +6,7 @@ import numpy as np  # For numerical operations and handling arrays
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 # Statistical transformations
 from scipy.stats import boxcox  # Applies Box-Cox transformation to normalize skewed data
@@ -17,7 +17,7 @@ from sklearn.preprocessing import (
 )
 
 class TransformMixin:
-    def _transform(self) -> "DataPreprocessor":
+    def _transform(self) -> "GeeseTools":
         """
         Apply transformations to numeric columns based on skewness and kurtosis.
         """
@@ -33,7 +33,7 @@ class TransformMixin:
             kurtosis = self.features_df[column].kurt()
             action = "None"
 
-            # ✅ FIX: Ensure log1p() only gets strictly positive values
+            # FIX: Ensure log1p() only gets strictly positive values
             if skewness > 1:
                 action = "Log Transformation"
                 series = self.features_df[column].astype(float)  # Explicit cast BEFORE clip

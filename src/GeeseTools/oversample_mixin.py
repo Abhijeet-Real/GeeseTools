@@ -5,14 +5,14 @@ import pandas as pd  # For handling structured data (DataFrames)import pandas as
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 # Sampling techniques for imbalanced datasets
 from imblearn.over_sampling import RandomOverSampler  # Randomly oversamples the minority class
 
 class OverSampleMixin:
     # Function for oversampling
-    def _oversample_data(self) -> "DataPreprocessor":
+    def _oversample_data(self) -> "GeeseTools":
         """
         Performs random oversampling to balance the dataset by increasing the number of instances in the minority class.
 
@@ -20,7 +20,7 @@ class OverSampleMixin:
             None (operates on instance attributes `self.X_train` and `self.y_train`).
 
         Returns:
-            DataPreprocessor: The updated instance with an oversampled training dataset.
+            GeeseTools: The updated instance with an oversampled training dataset.
         """
 
         # Perform random oversampling

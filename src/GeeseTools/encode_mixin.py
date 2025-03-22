@@ -5,7 +5,7 @@ import pandas as pd  # For handling structured data (DataFrames)import pandas as
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 # Feature scaling and encoding techniques
 from sklearn.preprocessing import (
@@ -15,7 +15,7 @@ from sklearn.preprocessing import (
 
 class EncodeMixin:
     # Encodes categorical columns in the DataFrame
-    def _encode(self) -> "DataPreprocessor":
+    def _encode(self) -> "GeeseTools":
         """
         Encodes categorical columns in the DataFrame using either OrdinalEncoder for ordinal columns 
         or OneHotEncoder for nominal columns.

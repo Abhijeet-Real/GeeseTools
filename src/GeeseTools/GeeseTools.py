@@ -7,10 +7,11 @@ import pandas as pd  # For handling structured data (DataFrames)
 from typing import Union, Optional 
 
 # Import mixins class
+# Import helper classes
 from .unique_value_summary_mixin import UniqueValueSummaryMixin
 from .missing_data_summary_mixin import MissingDataSummaryMixin
 from .display_mixin import DisplayMixin
-
+# Import Protected classes
 from .sample_data_mixin import SampleDataMixin
 from .feature_type_mixin import FeatureTypeMixin
 from .to_numeric_mixin import ToNumericMixin
@@ -23,29 +24,29 @@ from .transform_mixin import TransformMixin
 from .scale_mixin import ScaleMixin
 from .split_dataframe_mixin import SplitDataFrameMixin
 from .oversample_mixin import OverSampleMixin
+# Import MAIN class
 from .pre_process_mixin import PreProcessMixin
 
 # Import dataset
 from .datasets import load_heart_dataset
 
-
 # A comprehensive data preprocessing class
 class GeeseTools(UniqueValueSummaryMixin, 
-                       MissingDataSummaryMixin, 
-                       DisplayMixin,
-                       SampleDataMixin, 
-                       FeatureTypeMixin, 
-                       ToNumericMixin, 
-                       DropFeaturesMixin, 
-                       DropRecordsMixin, 
-                       ImputeFeaturesMixin,
-                       FeatureTargetSplitMixin, 
-                       EncodeMixin, 
-                       TransformMixin,
-                       ScaleMixin, 
-                       SplitDataFrameMixin, 
-                       OverSampleMixin, 
-                       PreProcessMixin):
+                MissingDataSummaryMixin, 
+                DisplayMixin,
+                SampleDataMixin, 
+                FeatureTypeMixin, 
+                ToNumericMixin, 
+                DropFeaturesMixin, 
+                DropRecordsMixin, 
+                ImputeFeaturesMixin,
+                FeatureTargetSplitMixin, 
+                EncodeMixin, 
+                TransformMixin,
+                ScaleMixin, 
+                SplitDataFrameMixin, 
+                OverSampleMixin, 
+                PreProcessMixin):
     """A comprehensive data preprocessing class that handles missing values, categorical encoding, 
     feature transformation, and scaling. This class automates data cleaning steps, ensuring 
     structured and efficient preprocessing for machine learning models."""
@@ -145,12 +146,12 @@ class GeeseTools(UniqueValueSummaryMixin,
         self.y_train: pd.DataFrame = None
         self.y_test: pd.DataFrame = None
 
-# Expose mixin methods to IDEs
-def _expose_mixin_methods(self):
-    """
-    Dummy method to expose mixin methods to IDEs like VSCode.
-    """
-    self.display_df
-    self.pre_process
-    self.show_missing_data_summary
-    self.get_unique_value_summary
+    # Expose mixin methods to IDEs
+    def _expose_mixin_methods(self):
+        """
+        Dummy method to expose mixin methods to IDEs like VSCode.
+        """
+        self.display_all_features
+        self.pre_process
+        self.missing_data_summary
+        self.unique_value_summary

@@ -2,11 +2,11 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 class DropRecordsMixin:
     # Removes records from the DataFrame
-    def _drop_records(self) -> "DataPreprocessor":
+    def _drop_records(self) -> "GeeseTools":
         """
         Remove records from the DataFrame where the percentage of missing values 
         exceeds the specified threshold.

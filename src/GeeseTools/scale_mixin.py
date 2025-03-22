@@ -7,7 +7,7 @@ import numpy as np  # For numerical operations and handling arrays
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import DataPreprocessor
+    from .GeeseTools import GeeseTools
 
 # Feature scaling and encoding techniques
 from sklearn.preprocessing import (
@@ -17,7 +17,7 @@ from sklearn.preprocessing import (
 
 class ScaleMixin:
     # Scales numeric columns of the input DataFrame
-    def _scale(self, method: str = "standard") -> "DataPreprocessor":
+    def _scale(self, method: str = "standard") -> "GeeseTools":
             """
             Scales numeric columns of the input DataFrame, excluding binary columns, and handles NaN/inf values.
 
@@ -26,7 +26,7 @@ class ScaleMixin:
                                         or 'minmax' for MinMaxScaler.
 
             Returns:
-                DataPreprocessor: The instance of the class with scaled features_df.
+                GeeseTools: The instance of the class with scaled features_df.
             """
             # Select numeric columns only
             numeric_cols = self.features_df.select_dtypes(include=["number"]).columns
