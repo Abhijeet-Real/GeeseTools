@@ -1,8 +1,8 @@
-# 📦 dpp
+# 🪿 Goose
 
 **Modular and Extensible Data Preprocessing Library for Machine Learning**
 
-`dpp` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
+`Goose` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
 
 ---
 
@@ -25,13 +25,13 @@
 You can install the package directly from **Test PyPI**:
 
 ```bash
-pip install --index-url https://test.pypi.org/simple/ dpp==0.1.0
+pip install --index-url https://test.pypi.org/simple/ Goose
 ```
 
 Or, after building your wheel file (`.whl`) from the source:
 
 ```bash
-pip install dist/dpp-0.1.0-py3-none-any.whl
+pip install dist/Goose-0.1.3-py3-none-any.whl
 ```
 
 Or install directly in **editable mode** (for development):
@@ -46,10 +46,10 @@ pip install -e .
 ## 🧪 Usage
 
 ```python
-import dpp as dpp
+import Goose as Goose
 
 # Instantiate with a dataset
-obj = dpp(
+obj = Goose(
     dataframe=df,
     target_variable='target',
     ordinal_features=['education_level'],
@@ -71,7 +71,7 @@ print(obj.transformation_log_df)
 If no DataFrame is provided, the processor loads a built-in `heart.csv` dataset:
 
 ```python
-obj = dpp()  # Uses sample heart dataset
+obj = Goose()  # Uses sample heart dataset
 ```
 
 ---
@@ -81,8 +81,8 @@ obj = dpp()  # Uses sample heart dataset
 ```
 src/
 │
-├── dpp/
-│   ├── DPP.py                  # Main class
+├── Goose/
+│   ├── Goose.py                  # Main class
 │   ├── mixins/                 # Modular preprocessing logic
 │   ├── data/heart.csv          # Default dataset
 │   ├── datasets.py             # Heart dataset loader

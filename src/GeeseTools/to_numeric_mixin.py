@@ -2,7 +2,7 @@ import pandas as pd
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.dpp.DPP import DataPreprocessor
+    from .GeeseTools import DataPreprocessor
 
 class ToNumericMixin:
     # Converts all columns in the DataFrame into numeric types where possible.

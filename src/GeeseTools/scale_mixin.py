@@ -7,7 +7,7 @@ import numpy as np  # For numerical operations and handling arrays
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.dpp.DPP import DataPreprocessor
+    from .GeeseTools import DataPreprocessor
 
 # Feature scaling and encoding techniques
 from sklearn.preprocessing import (

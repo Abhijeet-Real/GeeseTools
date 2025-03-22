@@ -30,7 +30,7 @@ from .datasets import load_heart_dataset
 
 
 # A comprehensive data preprocessing class
-class DataPreprocessor(UniqueValueSummaryMixin, 
+class GeeseTools(UniqueValueSummaryMixin, 
                        MissingDataSummaryMixin, 
                        DisplayMixin,
                        SampleDataMixin, 

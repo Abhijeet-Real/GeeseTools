@@ -5,7 +5,7 @@ import pandas as pd  # For handling structured data (DataFrames)import pandas as
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.dpp.DPP import DataPreprocessor
+    from .GeeseTools import DataPreprocessor
 
 # Sampling techniques for imbalanced datasets
 from imblearn.over_sampling import RandomOverSampler  # Randomly oversamples the minority class

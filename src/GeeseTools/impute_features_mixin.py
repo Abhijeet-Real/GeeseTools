@@ -8,7 +8,7 @@ from sklearn.impute import SimpleImputer  # For imputing missing values with sta
 # Type hinting for better code readability and function definitions
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from src.dpp.DPP import DataPreprocessor
+    from .GeeseTools import DataPreprocessor
 
 class ImputeFeaturesMixin:
     # Impute missing values

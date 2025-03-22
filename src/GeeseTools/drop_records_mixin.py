@@ -2,7 +2,7 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from src.dpp.DPP import DataPreprocessor
+    from .GeeseTools import DataPreprocessor
 
 class DropRecordsMixin:
     # Removes records from the DataFrame

@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dpp"
-version = "0.1.2"
+name = "GeeseTools"
+version = "0.1.6"
 description = "Modular and extensible data preprocessing library"
 authors = [
     { name = "Abhijeet", email = "abhijeet1472@gmail.com" }
