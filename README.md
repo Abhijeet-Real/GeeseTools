@@ -1,8 +1,8 @@
-# 🪿 Goose
+# 🪿🪿 GeeseTools 🛠️🛠️
 
 **Modular and Extensible Data Preprocessing Library for Machine Learning**
 
-`Goose` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
+`GeeseTools` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
 
 ---
 
@@ -20,18 +20,18 @@
 
 ---
 
-## 📂 Installation
+## ⚙️ Installation
 
-You can install the package directly from **Test PyPI**:
+You can install the package directly from **PyPI**:
 
 ```bash
-pip install --index-url https://test.pypi.org/simple/ Goose
+pip install GeeseTools
 ```
 
 Or, after building your wheel file (`.whl`) from the source:
 
 ```bash
-pip install dist/Goose-0.1.3-py3-none-any.whl
+pip install dist/GeeseTools-0.1.8-py3-none-any.whl
 ```
 
 Or install directly in **editable mode** (for development):
@@ -46,10 +46,10 @@ pip install -e .
 ## 🧪 Usage
 
 ```python
-import Goose as Goose
+import GeeseTools as gt
 
 # Instantiate with a dataset
-obj = Goose(
+obj = gt(
     dataframe=df,
     target_variable='target',
     ordinal_features=['education_level'],
@@ -71,7 +71,10 @@ print(obj.transformation_log_df)
 If no DataFrame is provided, the processor loads a built-in `heart.csv` dataset:
 
 ```python
-obj = Goose()  # Uses sample heart dataset
+obj = GeeseTools()  # Uses sample heart dataset
+
+# Apply full preprocessing pipeline
+X_train, X_test, y_train, y_test = obj.pre_process()
 ```
 
 ---
@@ -79,14 +82,30 @@ obj = Goose()  # Uses sample heart dataset
 ## 📁 Project Structure
 
 ```
-src/
+📦 GeeseTools/
+├── 📂 data/                            # 📁 Contains bundled datasets
+│   ├── 📄 heart.csv                    # 📊 Sample dataset (CSV format)
+│   └── 📜 __init__.py                  # 📦 Makes 'data' a subpackage
 │
-├── Goose/
-│   ├── Goose.py                  # Main class
-│   ├── mixins/                 # Modular preprocessing logic
-│   ├── data/heart.csv          # Default dataset
-│   ├── datasets.py             # Heart dataset loader
-│   └── __init__.py
+├── 📜 GeeseTools.py                    # 🧠 Core toolkit initializer or controller
+├── 📜 datasets.py                      # 📂 Dataset loading utilities
+├── 🧩 display_mixin.py                 # 🖥️ Display-related mixin
+├── 🧩 drop_features_mixin.py           # ✂️ Drop unwanted features
+├── 🧩 drop_records_mixin.py            # 🗑️ Drop records based on rules
+├── 🧩 encode_mixin.py                  # 🔤 Encoding (label, one-hot)
+├── 🧩 feature_target_split_mixin.py    # 🔀 Split into features & target
+├── 🧩 feature_type_mixin.py            # 🧬 Feature type detection
+├── 🧩 impute_features_mixin.py         # 🩹 Fill missing values
+├── 🧩 missing_data_summary_mixin.py    # 📉 Summary of missing data
+├── 🧩 oversample_mixin.py              # 🧪 Oversampling (e.g., SMOTE)
+├── 🧩 pre_process_mixin.py             # ⚙️ Complete preprocessing pipeline
+├── 🧩 sample_data_mixin.py             # 🎲 Random sampling utilities
+├── 🧩 scale_mixin.py                   # 📏 Scaling methods
+├── 🧩 split_dataframe_mixin.py         # 🧯 Split dataframe columns
+├── 🧩 to_numeric_mixin.py              # 🔢 Convert to numeric
+├── 🧩 transform_mixin.py               # 🔧 Feature transformations
+├── 🧩 unique_value_summary_mixin.py    # 🧾 Unique value summary
+└── 📜 __init__.py                      # 📦 Initializes GeeseTools package
 ```
 
 ---
