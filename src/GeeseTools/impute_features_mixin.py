@@ -1,6 +1,6 @@
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)
-import numpy as np  # For numerical operations and handling arrays
+import pandas as pd  
+import numpy as np  
 
 # Handling missing values
 from sklearn.impute import SimpleImputer  # For imputing missing values with statistical methods

@@ -1,6 +1,6 @@
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)import pandas as pd
-import numpy as np  # For numerical operations and handling arrays
+import pandas as pd  
+import numpy as np  
 
 
 # Type hinting for better code readability and function definitions

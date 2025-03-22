@@ -1,5 +1,5 @@
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)import pandas as pd
+import pandas as pd  
 
 class MissingDataSummaryMixin:
     # Computes a summary of missing values for each column in the dataset.

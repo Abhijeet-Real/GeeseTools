@@ -1,5 +1,5 @@
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)import pandas as pd
+import pandas as pd
 
 # Type hinting for better code readability and function definitions
 from typing import Union, Tuple

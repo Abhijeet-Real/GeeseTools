@@ -1,7 +1,7 @@
 # Importing essential libraries
 
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)
+import pandas as pd  
 
 # Type hinting for better code readability and function definitions
 from typing                                 import Union, Optional 
@@ -48,9 +48,11 @@ class GeeseTools(UniqueValueSummaryMixin,
                 OverSampleMixin, 
                 PreProcessMixin
                 ):
-    """A comprehensive data preprocessing class that handles missing values, categorical encoding, 
+    """
+    A comprehensive data preprocessing class that handles missing values, categorical encoding, 
     feature transformation, and scaling. This class automates data cleaning steps, ensuring 
-    structured and efficient preprocessing for machine learning models."""
+    structured and efficient preprocessing for machine learning models.
+    """
 
     # Initializes the DataPreprocessor class with the input dataset and preprocessing configurations.
     def __init__(self, dataframe:       Optional[pd.DataFrame] = None, 
@@ -64,47 +66,47 @@ class GeeseTools(UniqueValueSummaryMixin,
                  oversample:            bool = False                    # Related to __oversample_data
                  ) -> None:
         """
-            Initializes the DataPreprocessor class with the input dataset and preprocessing
-            configurations.
+        Initializes the DataPreprocessor class with the input dataset and preprocessing
+        configurations.
 
-            This method sets up essential attributes, identifies categorical and numerical
-            features, and applies preprocessing configurations, including handling missing
-            values, encoding categorical variables, and logging transformations.
+        This method sets up essential attributes, identifies categorical and numerical
+        features, and applies preprocessing configurations, including handling missing
+        values, encoding categorical variables, and logging transformations.
 
-            Args:
-                dataframe (pd.DataFrame): The input dataset to be preprocessed.
-                
-                target_variable (Union[str, list]): The target column(s) for prediction or
-                classification.
-                
-                sample_size (Optional[Union[int, float]], optional): The number of records to
-                sample from the dataset. If an integer, it specifies the exact number of records.
-                If a float (0 < x ≤ 100), it represents the percentage of data to sample. Defaults
-                to None.
-                
-                missing_threshold (float, optional): The percentage threshold for dropping
-                features with missing values. Features exceeding this threshold will be removed.
-                Defaults to 25.
-                
-                ordinal_features (list, optional): List of categorical features that should be
-                ordinal encoded. Defaults to an empty list.
-                
-                ordinal_categories (Optional[list], optional): List of lists specifying the
-                category order for ordinal features. Each list should contain category values in
-                increasing order of rank. Defaults to None.
-                
-                use_one_hot_encoding (bool, optional): Whether to apply one-hot encoding to
-                categorical features. Defaults to False.
-                
-                cv_split_percentage (int, optional): The percentage of data to allocate for
-                testing during train-test split. Defaults to 20 (i.e., 20% test and 80% train).
-                
-                oversample (bool, optional): Whether to apply oversampling techniques to balance
-                imbalanced datasets. Defaults to False.
+        Args:
+            dataframe (pd.DataFrame): The input dataset to be preprocessed.
+            
+            target_variable (Union[str, list]): The target column(s) for prediction or
+            classification.
+            
+            sample_size (Optional[Union[int, float]], optional): The number of records to
+            sample from the dataset. If an integer, it specifies the exact number of records.
+            If a float (0 < x ≤ 100), it represents the percentage of data to sample. Defaults
+            to None.
+            
+            missing_threshold (float, optional): The percentage threshold for dropping
+            features with missing values. Features exceeding this threshold will be removed.
+            Defaults to 25.
+            
+            ordinal_features (list, optional): List of categorical features that should be
+            ordinal encoded. Defaults to an empty list.
+            
+            ordinal_categories (Optional[list], optional): List of lists specifying the
+            category order for ordinal features. Each list should contain category values in
+            increasing order of rank. Defaults to None.
+            
+            use_one_hot_encoding (bool, optional): Whether to apply one-hot encoding to
+            categorical features. Defaults to False.
+            
+            cv_split_percentage (int, optional): The percentage of data to allocate for
+            testing during train-test split. Defaults to 20 (i.e., 20% test and 80% train).
+            
+            oversample (bool, optional): Whether to apply oversampling techniques to balance
+            imbalanced datasets. Defaults to False.
 
-            Returns:
-                None: This method initializes the preprocessing class and prepares attributes
-                for subsequent transformations.
+        Returns:
+            None: This method initializes the preprocessing class and prepares attributes
+            for subsequent transformations.
         """
 
         
@@ -120,23 +122,16 @@ class GeeseTools(UniqueValueSummaryMixin,
         self.encode_log_df:                 pd.DataFrame = None
         self.transformation_log_df:         pd.DataFrame = None
         self.scale_log_df:                  pd.DataFrame = None
-
-        if dataframe is None:
-            self.working_df = load_heart_dataset()
-        else:
-            # Setting up working dataframe
-            self.working_df = dataframe.copy()
+     
+        # Setting up working dataframe
+        self.working_df = load_heart_dataset() if dataframe is None else dataframe.copy()
 
         # Sample Size
         self.sample_size = sample_size
         self.oversample = oversample
 
-        
         # Defining Variables
-        self.target_variable = target_variable
-        # Ensure target_variable is a list
-        if isinstance(target_variable, str):
-            self.target_variable = [target_variable]
+        self.target_variable = [target_variable] if isinstance(target_variable, str) else target_variable
 
         # Identify feature types
         self.categorical_features, self.non_categorical_features = self._feature_type()
