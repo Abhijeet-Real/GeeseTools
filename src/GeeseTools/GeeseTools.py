@@ -46,7 +46,8 @@ class GeeseTools(UniqueValueSummaryMixin,
                 ScaleMixin, 
                 SplitDataFrameMixin, 
                 OverSampleMixin, 
-                PreProcessMixin):
+                PreProcessMixin
+                ):
     """A comprehensive data preprocessing class that handles missing values, categorical encoding, 
     feature transformation, and scaling. This class automates data cleaning steps, ensuring 
     structured and efficient preprocessing for machine learning models."""
