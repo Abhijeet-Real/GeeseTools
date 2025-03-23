@@ -59,10 +59,10 @@ class GeeseTools(UniqueValueSummaryMixin,
                  target_variable:       Union[str, list] = 'target', 
                  sample_size:           Union[int, float] = 100,        # Related to _sample_data
                  missing_threshold:     float = 25,                     # Related to _impute_features
+                 cv_split_percentage:   int = 20,                       # Related to __split_dataframe
                  ordinal_features:      list = [],                      # Related to _encode
                  ordinal_categories:    Optional[list] = None,          # Related to _encode
                  use_one_hot_encoding:  bool = False,                   # Related to _encode
-                 cv_split_percentage:   int = 20,                       # Related to __split_dataframe
                  oversample:            bool = False                    # Related to __oversample_data
                  ) -> None:
         """
