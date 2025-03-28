@@ -1,8 +1,8 @@
-# 🪿🪿 GeeseTools 🛠️🛠️
+# 🪿🪿 DucksTools 🛠️🛠️
 
 **Modular and Extensible Data Preprocessing Library for Machine Learning**
 
-`GeeseTools` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
+`DucksTools` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
 
 ---
 
@@ -25,13 +25,13 @@
 You can install the package directly from **PyPI**:
 
 ```bash
-pip install GeeseTools
+pip install DucksTools
 ```
 
 Or, after building your wheel file (`.whl`) from the source:
 
 ```bash
-pip install dist/GeeseTools-0.1.8-py3-none-any.whl
+pip install dist/DucksTools-0.1.8-py3-none-any.whl
 ```
 
 Or install directly in **editable mode** (for development):
@@ -46,7 +46,7 @@ pip install -e .
 ## 🧪 Usage
 
 ```python
-import GeeseTools as gt
+import DucksTools as gt
 
 # Instantiate with a dataset
 obj = gt(
@@ -71,7 +71,7 @@ print(obj.transformation_log_df)
 If no DataFrame is provided, the processor loads a built-in `heart.csv` dataset:
 
 ```python
-obj = GeeseTools()  # Uses sample heart dataset
+obj = DucksTools()  # Uses sample heart dataset
 
 # Apply full preprocessing pipeline
 X_train, X_test, y_train, y_test = obj.pre_process()
@@ -82,12 +82,12 @@ X_train, X_test, y_train, y_test = obj.pre_process()
 ## 📁 Project Structure
 
 ```
-📦 GeeseTools/
+📦 DucksTools/
 ├── 📂 data/                            # 📁 Contains bundled datasets
 │   ├── 📄 heart.csv                    # 📊 Sample dataset (CSV format)
 │   └── 📜 __init__.py                  # 📦 Makes 'data' a subpackage
 │
-├── 📜 GeeseTools.py                    # 🧠 Core toolkit initializer or controller
+├── 📜 DucksTools.py                    # 🧠 Core toolkit initializer or controller
 ├── 📜 datasets.py                      # 📂 Dataset loading utilities
 ├── 🧩 display_mixin.py                 # 🖥️ Display-related mixin
 ├── 🧩 drop_features_mixin.py           # ✂️ Drop unwanted features
@@ -105,7 +105,7 @@ X_train, X_test, y_train, y_test = obj.pre_process()
 ├── 🧩 to_numeric_mixin.py              # 🔢 Convert to numeric
 ├── 🧩 transform_mixin.py               # 🔧 Feature transformations
 ├── 🧩 unique_value_summary_mixin.py    # 🧾 Unique value summary
-└── 📜 __init__.py                      # 📦 Initializes GeeseTools package
+└── 📜 __init__.py                      # 📦 Initializes DucksTools package
 ```
 
 ---
