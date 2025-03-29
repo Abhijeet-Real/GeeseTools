@@ -28,19 +28,6 @@ You can install the package directly from **PyPI**:
 pip install GeeseTools
 ```
 
-Or, after building your wheel file (`.whl`) from the source:
-
-```bash
-pip install dist/GeeseTools-0.1.8-py3-none-any.whl
-```
-
-Or install directly in **editable mode** (for development):
-
-```bash
-pip install -e .
-```
-
-
 ---
 
 ##  Usage
@@ -110,7 +97,7 @@ X_train, X_test, y_train, y_test = obj.pre_process()
 
 ---
 
-## ⚙️ Requirements
+## Requirements
 
 - Python 3.9–3.11
 - pandas
@@ -131,4 +118,4 @@ _You're free to use, modify, and distribute this project with proper attribution
 
 ##  Contributions Welcome
 
-Want to add new mixins or support more file types? Fork it, branch it, push it, and let’s build together!
+Fork it!
