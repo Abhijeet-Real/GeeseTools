@@ -1,0 +1,6 @@
+pandas>=1.5
+scikit-learn
+imbalanced-learn
+ipython
+scipy
+openpyxl
