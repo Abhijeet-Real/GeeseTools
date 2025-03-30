@@ -31,7 +31,7 @@ from .pre_process_mixin                     import PreProcessMixin
 from .datasets                              import load_heart_dataset
 
 # A comprehensive data preprocessing class
-class DucksTools(UniqueValueSummaryMixin, 
+class GeeseTools(UniqueValueSummaryMixin, 
                 MissingDataSummaryMixin, 
                 DisplayMixin,
                 SampleDataMixin, 
