@@ -48,7 +48,7 @@ class EncodeMixin:
                 })
 
         # Encode nominal columns
-        if self.use_one_hot_encoding:
+        if self.one_hot_encoding:
             # Exclude already numeric columns from one-hot encoding
             nominal_features_to_encode = [col for col in self.nominal_features if not pd.api.types.is_numeric_dtype(self.features_df[col])]
 

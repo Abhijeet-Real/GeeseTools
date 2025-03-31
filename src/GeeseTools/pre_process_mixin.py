@@ -48,6 +48,10 @@ class PreProcessMixin():
         # Split features and target
         self._feature_target_split()
 
+        # bin y
+        if self.nr_y_bins != 0:
+            self._create_y_bins()
+
         # Encode categorical variables
         self._encode()
 

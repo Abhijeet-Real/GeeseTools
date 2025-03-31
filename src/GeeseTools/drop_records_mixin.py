@@ -14,10 +14,6 @@ class DropRecordsMixin:
         Args:
             None
 
-        Returns:
-            tuple[pd.DataFrame, pd.DataFrame]: A tuple containing:
-                - The cleaned DataFrame with records removed.
-                - A DataFrame listing removed records with excessive missing values.
         """
 
         # Calculate the threshold for missing values based on the given percentage

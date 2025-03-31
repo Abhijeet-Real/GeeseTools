@@ -18,6 +18,7 @@ from .to_numeric_mixin                      import ToNumericMixin
 from .drop_features_mixin                   import DropFeaturesMixin
 from .drop_records_mixin                    import DropRecordsMixin
 from .impute_features_mixin                 import ImputeFeaturesMixin
+from .create_bins_mixin                     import CreateBinsMixin
 from .feature_target_split_mixin            import FeatureTargetSplitMixin
 from .encode_mixin                          import EncodeMixin
 from .transform_mixin                       import TransformMixin
@@ -40,6 +41,7 @@ class GeeseTools(UniqueValueSummaryMixin,
                 DropFeaturesMixin, 
                 DropRecordsMixin, 
                 ImputeFeaturesMixin,
+                CreateBinsMixin,
                 FeatureTargetSplitMixin, 
                 EncodeMixin, 
                 TransformMixin,
@@ -62,8 +64,9 @@ class GeeseTools(UniqueValueSummaryMixin,
                  cv_split_percentage:   int = 20,                       # Related to __split_dataframe
                  ordinal_features:      list = [],                      # Related to _encode
                  ordinal_categories:    Optional[list] = None,          # Related to _encode
-                 use_one_hot_encoding:  bool = False,                   # Related to _encode
-                 oversample:            bool = False                    # Related to __oversample_data
+                 one_hot_encoding:      bool = False,                   # Related to _encode
+                 oversample:            bool = False,                   # Related to __oversample_data,
+                 nr_y_bins:                int = 0                         # Related to target variable classification
                  ) -> None:
         """
         Initializes the DataPreprocessor class with the input dataset and preprocessing
@@ -126,6 +129,8 @@ class GeeseTools(UniqueValueSummaryMixin,
         # Setting up working dataframe
         self.working_df = load_heart_dataset() if dataframe is None else dataframe.copy()
 
+        self.nr_y_bins = nr_y_bins
+
         # Sample Size
         self.sample_size = sample_size
         self.oversample = oversample
@@ -143,7 +148,7 @@ class GeeseTools(UniqueValueSummaryMixin,
                                  if col not in self.ordinal_features + self.target_variable]
 
         # One Hot Encoding
-        self.use_one_hot_encoding = use_one_hot_encoding
+        self.one_hot_encoding = one_hot_encoding
         # Missing thresholde limit
         self.missing_threshold = missing_threshold
         # Train test split
