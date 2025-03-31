@@ -76,6 +76,7 @@ X_train, X_test, y_train, y_test = obj.pre_process()
 │
 ├── 📜 GeeseTools.py                    #  Core toolkit initializer or controller
 ├── 📜 datasets.py                      #  Dataset loading utilities
+├── 🧩 create_bins_mixin.py             #  Creates Bin for numerical Y 
 ├── 🧩 display_mixin.py                 #  Display-related mixin
 ├── 🧩 drop_features_mixin.py           #  Drop unwanted features
 ├── 🧩 drop_records_mixin.py            #  Drop records based on rules
