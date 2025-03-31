@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GeeseTools"
-version = "0.1.19"
+version = "0.1.22"
 description = "Modular and extensible data preprocessing library"
 authors = [
     { name = "Abhijeet", email = "abhijeet1472@gmail.com" }
