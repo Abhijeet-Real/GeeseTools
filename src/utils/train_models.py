@@ -3,7 +3,7 @@ import numpy as np
 from . import train_classification_model as tcm
 from . import train_regression_model as trm
 
-def train_smart_model(X_train, y_train, epochs=50, batch_size=16, class_threshold=10):
+def train_model(X_train, y_train, epochs=50, batch_size=16, class_threshold=10):
     # Convert y_train to array for consistency
     y_train = np.array(y_train)
 
