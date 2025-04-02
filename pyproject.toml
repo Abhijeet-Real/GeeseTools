@@ -10,7 +10,7 @@ authors = [
     { name = "Abhijeet", email = "abhijeet1472@gmail.com" }
 ]
 readme = "README.md"
-license = { text = "MIT" }
+license-files = ["LICENSE"]
 requires-python = ">=3.9,<3.12"
 dependencies = [
     "pandas>=1.5",
