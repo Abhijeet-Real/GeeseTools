@@ -19,10 +19,15 @@ Welcome to **GeeseTools** – a lightweight and modular toolkit designed for qui
 ```
 📦 GeeseTools/
 ├── 📂 data/                            
-│   └── 📄 heart.csv                    
+│   └──📄 heart.csv             # Default Dataset            
 │    
-├── 📁 datapreprocessor       # Data cleaning, encoding, scaling, and splitting
-└── 📁 utils                  # Model training, evaluation, and visualization tools
+├── 📁 DataPreProcessor       
+│   └──📜 DataPreProcessor.py   # Main Script
+│
+└── 📁 utils                    
+    ├──📜 train_models.py       # Model training,
+    ├──📜 evaluation.py         # Model evaluation
+    └──📜 plot.py               # Evaluation visualization
 
 
 ```
@@ -107,5 +112,11 @@ Feel free to fork and improve! PRs are welcome for new features, improvements, o
 
 Made with ❤️ by Abhijeet  
 [LinkedIn](https://www.linkedin.com/in/abhijeet-099670300/) | [GitHub](https://github.com/Abhijeet-Real/)
+
+---
+
+## License
+MIT © Abhijeet
+You're free to use, modify, and distribute this project with proper attribution.
 
 ---
