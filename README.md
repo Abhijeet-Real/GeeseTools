@@ -46,7 +46,7 @@ pip install GeeseTools
 ### 1. Import the modules
 
 ```python
-from datapreprocessor import preprocess_data
+from datapreprocessor import datapreprocessor as dpp
 from utils import train_model as tm
 from utils import evaluate_model as eval
 from utils import plot
