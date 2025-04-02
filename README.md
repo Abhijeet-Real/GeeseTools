@@ -1,28 +1,32 @@
-# 🪿GeeseTools🛠
+# 🪿🪿GeeseTools
+- Fast & Flexible Data Analysis Toolkit
 
-**Modular and Extensible Data Preprocessing Library for Machine Learning**
-
-`GeeseTools` is a plug-and-play, mixin-based Python library that streamlines the preprocessing of tabular datasets for machine learning tasks. Whether you’re cleaning messy data, encoding categories, transforming skewed distributions, or scaling features — this package has you covered.
-
----
-
-##  Features
-
--  Handle missing data
--  Convert object columns to numeric
--  Identify feature types (categorical, ordinal, nominal, etc.)
--  Encode nominal and ordinal features
--  Transform skewed and heavy-tailed features
--  Scale features with standard or power transformations
--  Train-test split with optional oversampling
--  Transformation logs for transparency and reproducibility
--  Built using Mixins for modular extension
+Welcome to **GeeseTools** – a lightweight and modular toolkit designed for quick data preprocessing, model building, evaluation, and visualizations. Perfect for quick experiments and rapid prototyping in machine learning workflows!
 
 ---
 
-## ⚙️ Installation
+## Features
 
-You can install the package directly from **PyPI**:
+- Clean and preprocess your datasets effortlessly with `datapreprocessor`
+- Quickly train and evaluate models with `utils`
+- Auto-generate plots for insights and performance metrics
+- Minimal setup, beginner-friendly, and fully extensible
+
+---
+
+## Module Structure
+
+```
+📁 GeeseTools/
+│
+├── 📁 datapreprocessor       # Data cleaning, encoding, scaling, and splitting
+├── 📁 utils                  # Model training, evaluation, and visualization tools
+
+
+```
+
+##  Installation
+
 
 ```bash
 pip install GeeseTools
@@ -30,93 +34,76 @@ pip install GeeseTools
 
 ---
 
-##  Usage
+## 📚 How to Use
+
+### 1. Import the modules
 
 ```python
-import GeeseTools as gt
-
-# Instantiate with a dataset
-obj = gt(
-    dataframe=df,
-    target_variable='target',
-    ordinal_features=['education_level'],
-    ordinal_categories=[['Low', 'Medium', 'High']],
-    use_one_hot_encoding=True
-)
-
-# Apply full preprocessing pipeline
-X_train, X_test, y_train, y_test = obj.pre_process()
-
-# Access logs
-print(obj.transformation_log_df)
+from datapreprocessor import preprocess_data
+from utils import train_model as tm
+from utils import evaluate_model as eval
+from utils import plot
 ```
 
 ---
 
-##  Default Sample Dataset
-
-If no DataFrame is provided, the processor loads a built-in `heart.csv` dataset:
+### 2. Preprocess your data
 
 ```python
-obj = GeeseTools()  # Uses sample heart dataset
-
-# Apply full preprocessing pipeline
-X_train, X_test, y_train, y_test = obj.pre_process()
+# Creating object for DataPreProcessor Class
+obj = dpp(pd.read_csv("heart.csv"), target="diagnosis")
 ```
 
 ---
 
-##  Project Structure
+### 3. Train a model
 
-```
-📦 GeeseTools/
-├── 📂 data/                            #  Contains bundled datasets
-│   ├── 📄 heart.csv                    #  Sample dataset (CSV format)
-│   └── 📜 __init__.py                  #  Makes 'data' a subpackage
-│
-├── 📜 GeeseTools.py                    #  Core toolkit initializer or controller
-├── 📜 datasets.py                      #  Dataset loading utilities
-├── 🧩 create_bins_mixin.py             #  Creates Bin for numerical Y 
-├── 🧩 display_mixin.py                 #  Display-related mixin
-├── 🧩 drop_features_mixin.py           #  Drop unwanted features
-├── 🧩 drop_records_mixin.py            #  Drop records based on rules
-├── 🧩 encode_mixin.py                  #  Encoding (label, one-hot)
-├── 🧩 feature_target_split_mixin.py    #  Split into features & target
-├── 🧩 feature_type_mixin.py            #  Feature type detection
-├── 🧩 impute_features_mixin.py         #  Fill missing values
-├── 🧩 missing_data_summary_mixin.py    #  Summary of missing data
-├── 🧩 oversample_mixin.py              #  Oversampling (e.g., SMOTE)
-├── 🧩 pre_process_mixin.py             #  Complete preprocessing pipeline
-├── 🧩 sample_data_mixin.py             #  Random sampling utilities
-├── 🧩 scale_mixin.py                   #  Scaling methods
-├── 🧩 split_dataframe_mixin.py         #  Split dataframe columns
-├── 🧩 to_numeric_mixin.py              #  Convert to numeric
-├── 🧩 transform_mixin.py               #  Feature transformations
-├── 🧩 unique_value_summary_mixin.py    #  Unique value summary
-└── 📜 __init__.py                      #  Initializes GeeseTools package
+```python
+model, task_type, history = tm.train_smart_model(X_train, y_train)
 ```
 
 ---
 
-## Requirements
+### 4. Evaluate the model
 
-- Python 3.9–3.11
-- pandas
-- scikit-learn
-- imbalanced-learn
-- scipy
-- ipython
-- openpyxl
+```python
+metric, y_pred = eval.evaluate_model(model, X_test, y_test, task_type)
+```
 
 ---
 
-##  License
+### 5. Plot results
 
-MIT © Abhijeet  
-_You're free to use, modify, and distribute this project with proper attribution._
+```python
+plot.plot_model_outputs(y_test, y_pred)
+```
 
 ---
 
-##  Contributions Welcome
+##  Example Notebook
 
-Fork it!
+Check out [DataAnalysis.ipynb](https://github.com/Abhijeet-Real/DataPreProcessor/blob/main/DataAnalysis.ipynb)  for a full example pipeline from preprocessing to visualization.
+
+---
+
+##  Dependencies
+
+- `scipy` `pandas` `ipython`
+- `seaborn` `openpyxl`
+- `matplotlib` `scikit-learn`
+- `imbalanced-learn`
+
+---
+
+## Contributing
+
+Feel free to fork and improve! PRs are welcome for new features, improvements, or bug fixes.
+
+---
+
+## Contact
+
+Made with ❤️ by Abhijeet  
+[LinkedIn](https://www.linkedin.com/in/abhijeet-099670300/) | [GitHub](https://github.com/Abhijeet-Real/)
+
+---
