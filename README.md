@@ -17,10 +17,12 @@ Welcome to **GeeseTools** – a lightweight and modular toolkit designed for qui
 ## Module Structure
 
 ```
-📁 GeeseTools/
-│
+📦 GeeseTools/
+├── 📂 data/                            
+│   └── 📄 heart.csv                    
+│    
 ├── 📁 datapreprocessor       # Data cleaning, encoding, scaling, and splitting
-├── 📁 utils                  # Model training, evaluation, and visualization tools
+└── 📁 utils                  # Model training, evaluation, and visualization tools
 
 
 ```
