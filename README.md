@@ -66,7 +66,7 @@ obj = dpp(pd.read_csv("heart.csv"), target="diagnosis")
 ### 3. Train a model
 
 ```python
-model, task_type, history = tm.train_smart_model(X_train, y_train)
+model, task_type, history = tm.train_model(X_train, y_train)
 ```
 
 ---
