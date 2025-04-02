@@ -82,7 +82,10 @@ metric, y_pred = eval.evaluate_model(model, X_test, y_test, task_type)
 ### 5. Plot results
 
 ```python
-plot.plot_model_outputs(y_test, y_pred)
+plot.plot_model_outputs(y_test, y_pred) # for Classification problem
+or
+plot.plot_model_outputs(history) # for Regression problem
+
 ```
 
 ---
