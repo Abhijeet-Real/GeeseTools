@@ -2,18 +2,14 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import GeeseTools
+    from .DataPreProcessor import DataPreProcessor
 
 class DropRecordsMixin:
     # Removes records from the DataFrame
-    def _drop_records(self) -> "GeeseTools":
+    def _drop_records(self) -> "DataPreProcessor":
         """
         Remove records from the DataFrame where the percentage of missing values 
         exceeds the specified threshold.
-
-        Args:
-            None
-
         """
 
         # Calculate the threshold for missing values based on the given percentage
@@ -22,5 +18,5 @@ class DropRecordsMixin:
         # Identify records with missing values exceeding the threshold
         self.dropped_records_log_df = self.working_df[self.working_df.isnull().sum(axis=1) > threshold]
 
-        # Create a cleaned DataFrame without modifying self.working_df
+        # Create a cleaned DataFrame while modifying self.working_df
         self.working_df = self.working_df.drop(index=self.dropped_records_log_df.index)

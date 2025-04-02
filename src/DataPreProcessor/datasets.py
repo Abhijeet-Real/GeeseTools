@@ -8,9 +8,9 @@ def load_heart_dataset() -> pd.DataFrame:
     """
     Load the heart.csv dataset from the installed package.
     """
-    heart_csv_path = os.path.join(DATA_DIR, "heart.csv")
+    default_dataset_path = os.path.join(DATA_DIR, "heart.csv")
 
-    if not os.path.exists(heart_csv_path):
-        raise FileNotFoundError(f"Dataset not found: {heart_csv_path}")
+    if not os.path.exists(default_dataset_path):
+        raise FileNotFoundError(f"Default dataset not found: {default_dataset_path}")
 
-    return pd.read_csv(heart_csv_path)
+    return pd.read_csv(default_dataset_path)

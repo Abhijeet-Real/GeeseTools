@@ -9,19 +9,6 @@ class PreProcessMixin():
     def pre_process(self) -> Tuple[ pd.DataFrame, Union[pd.Series, pd.DataFrame]]:
         """
         Pre-process the input DataFrame by performing the following steps:
-        1. Drop variables with more than `missing_threshold%` missing values.
-        2. Drop records with more than `missing_threshold%` missing values.
-        3. Impute missing values.
-        4. Encode categorical variables.
-        5. Transform features.
-        6. Scale numeric features.
-
-        Args:
-            None
-        Returns:
-            Tuple containing:
-            - Processed features DataFrame.
-            - Target variable (Series or DataFrame).
         """
         
         # Sample Size

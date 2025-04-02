@@ -4,3 +4,5 @@ imbalanced-learn
 ipython
 scipy
 openpyxl
+matplotlib
+seaborn

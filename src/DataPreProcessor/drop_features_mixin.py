@@ -5,21 +5,13 @@ import pandas as pd
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import GeeseTools
+    from .DataPreProcessor import DataPreProcessor
 
 class DropFeaturesMixin:
     # Remove features from the DataFrame
-    def _drop_features(self) -> "GeeseTools":
+    def _drop_features(self) -> "DataPreProcessor":
         """
         Remove features from the DataFrame with a missing percentage higher than the given threshold.
-
-        Args:
-            None
-
-        Returns:
-            tuple[pd.DataFrame, pd.DataFrame]: A tuple containing:
-                - The cleaned DataFrame with selected features.
-                - A DataFrame listing omitted features and their missing percentages.
         """
 
         # Calculate missing percentage for each column

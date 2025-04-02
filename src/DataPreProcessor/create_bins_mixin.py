@@ -4,25 +4,12 @@ import pandas as pd
 import numpy as np
 
 if TYPE_CHECKING:
-    from .GeeseTools import GeeseTools
+    from .DataPreProcessor import DataPreProcessor
 
 class CreateBinsMixin:
-    def _create_y_bins(self) -> "GeeseTools":
+    def _create_y_bins(self) -> "DataPreProcessor":
         """
         Creates bins for the target variable in the working DataFrame.
-
-        This method checks if `nr_y_bins` is greater than zero and if `target_variable` 
-        is a numeric column in `self.working_df`. If these conditions are met, 
-        it determines the minimum and maximum values of `target_variable` 
-        and creates `nr_y_bins` equal-width bins. The `target_variable` 
-        values are then categorized into these bins.
-
-        Returns:
-            GeeseTools: The modified instance with updated `working_df`.
-
-        Note:
-            - Modifies `self.working_df` in place.
-            - The function assumes `target_variable` exists in `working_df` and is numeric.
         """
 
         if self.target_df.ndim == 1:  # If target_df is a Series
@@ -37,7 +24,7 @@ class CreateBinsMixin:
 
                 # Creating bins
                 bin_edges = np.linspace(min_val, max_val, self.nr_y_bins + 1)
-                bin_labels = [f"{bin_edges[i]} - {bin_edges[i+1]}" for i in range(len(bin_edges) - 1)]
+                bin_labels = self._format_bin_edges(bin_edges)
                 self.target_df = pd.cut(self.target_df, bins=bin_edges, labels=bin_labels, include_lowest=True).astype(str)
 
         else:  # If self.target_df is a DataFrame
@@ -48,7 +35,16 @@ class CreateBinsMixin:
 
                     # Creating bins
                     bin_edges = np.linspace(min_val, max_val, self.nr_y_bins + 1)
-                    bin_labels = [f"{bin_edges[i]} - {bin_edges[i+1]}" for i in range(len(bin_edges) - 1)]
+                    bin_labels = self._format_bin_edges(bin_edges)
                     self.target_df[col] = pd.cut(self.target_df[col], bins=bin_edges, labels=bin_labels, include_lowest=True).astype(str)
 
                 print(self.target_df)
+
+
+    def _format_bin_edges(self, bin_edges, threshold=1e-20):
+        def format_val(val):
+            val = 0.0 if abs(val) < threshold else round(val, 2)
+            return f"{val:.0f}"
+
+        return [f"{format_val(bin_edges[i])} - {format_val(bin_edges[i + 1])}"
+                for i in range(len(bin_edges) - 1)]

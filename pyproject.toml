@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "GeeseTools"
-version = "0.1.22"
+version = "0.2.1"
 description = "Modular and extensible data preprocessing library"
 authors = [
     { name = "Abhijeet", email = "abhijeet1472@gmail.com" }
@@ -18,7 +18,9 @@ dependencies = [
     "imbalanced-learn",
     "ipython",
     "scipy",
-    "openpyxl"
+    "openpyxl",
+    "matplotlib",
+    "seaborn"
 ]
 
 [tool.setuptools]

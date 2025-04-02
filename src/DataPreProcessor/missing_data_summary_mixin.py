@@ -12,10 +12,6 @@ class MissingDataSummaryMixin:
         features that may require imputation or removal based on the 
         missing data threshold.
 
-        Args:
-            None
-
-
         Returns:
             pd.DataFrame: 
         """

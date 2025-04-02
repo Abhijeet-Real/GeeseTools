@@ -5,14 +5,6 @@ class FeatureTypeMixin:
     def _feature_type(self) -> Tuple[list, list]:
         """
         Identifies categorical and non-categorical columns in the DataFrame.
-
-        Args:
-            None
-
-        Returns:
-            tuple[list, list]: A tuple containing:
-                - List of categorical column names.
-                - List of non-categorical column names.
         """
 
         self.categorical_features = self.working_df.select_dtypes(include=["object", "category"]).columns.tolist()

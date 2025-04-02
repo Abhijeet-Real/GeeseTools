@@ -2,21 +2,13 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import GeeseTools
+    from .DataPreProcessor import DataPreProcessor
 
 class FeatureTargetSplitMixin:
     # Splits the DataFrame into features and target variable
-    def _feature_target_split(self) -> "GeeseTools":
+    def _feature_target_split(self) -> "DataPreProcessor":
         """
         Splits the DataFrame into features and target variable.
-
-        Args:
-            None
-
-        Returns:
-            Tuple[pd.DataFrame, Union[pd.Series, pd.DataFrame]]: 
-                - A DataFrame containing features.
-                - A Series if the target is a single column, otherwise a DataFrame.
         """
 
         # Extract features and target without modifying self.working_df

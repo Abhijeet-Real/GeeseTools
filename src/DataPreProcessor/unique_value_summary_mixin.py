@@ -1,5 +1,5 @@
 # Data manipulation and numerical operations
-import pandas as pd  # For handling structured data (DataFrames)import pandas as pd
+import pandas as pd
 
 class UniqueValueSummaryMixin:
     # Generates a summary of unique values for each column in the dataset.
@@ -11,9 +11,6 @@ class UniqueValueSummaryMixin:
         and their percentage representation for every column. This is useful 
         for detecting categorical variables, identifying high-cardinality columns, 
         and assessing data distribution.
-
-        Args:
-            None
 
         Returns:
             pd.DataFrame: 

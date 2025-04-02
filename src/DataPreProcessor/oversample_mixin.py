@@ -2,22 +2,16 @@
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .GeeseTools import GeeseTools
+    from .DataPreProcessor import DataPreProcessor
 
 # Sampling techniques for imbalanced datasets
 from imblearn.over_sampling import RandomOverSampler  # Randomly oversamples the minority class
 
 class OverSampleMixin:
     # Function for oversampling
-    def _oversample_data(self) -> "GeeseTools":
+    def _oversample_data(self) -> "DataPreProcessor":
         """
         Performs random oversampling to balance the dataset by increasing the number of instances in the minority class.
-
-        Args:
-            None (operates on instance attributes `self.X_train` and `self.y_train`).
-
-        Returns:
-            GeeseTools: The updated instance with an oversampled training dataset.
         """
 
         # Perform random oversampling
